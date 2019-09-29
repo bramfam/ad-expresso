@@ -28,8 +28,7 @@ export default {
 			axios.get(this.endpoint)
 			.then(response => this.campaigns = response.data)
 			.catch(error => console.log(error));
-		},
-		
+		}
 	}
 };
 </script>

@@ -26,11 +26,11 @@
                     </li>
                 </ul>
                 <span class="navbar-text text-white">
-                   <li class="nav-item active text-secondary">
-                </li>
-            </span>
-        </div>
-    </nav>
+                 <li class="nav-item active text-secondary">
+                 </li>
+             </span>
+         </div>
+     </nav>
     <main class="py-4">
         @yield('content')
     </main>

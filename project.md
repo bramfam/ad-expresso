@@ -97,7 +97,9 @@ Primary Stats
 
 Prerequisites 
 -> User will have to choose between facebook / google ads first through a toggle.
--> Then he will choose between the 2 accounts and a connectiion modal
+___________________
+
+___________________
 
 
 Create a campaign. 

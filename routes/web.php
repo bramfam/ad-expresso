@@ -16,7 +16,9 @@ Route::get('/', function () {
 
 
 
-/*this is */
+/*
+these are components...
+*/
 Route::get('/components', function () {
 	return view('components');
 });
@@ -24,11 +26,11 @@ Route::get('/components', function () {
 
 /*only for the ones who are logged on*/
 Route::group(['middleware' => [ 'auth','verified' ]], function (){
-	// view a users tags.. 
+// view a users tags.. 
 
-	// go visit a campaign..
+// go visit a campaign..
 	Route::resource('campaign','CampaignController');
-	
+
 	Route::get("tags/user/{user}","CampaignController@tags")->name("campaign.user.tags");
 
 
@@ -40,6 +42,10 @@ Route::group(['middleware' => [ 'auth','verified' ]], function (){
 Route::get('/auto-log',function(){
 	auth()->loginUsingId(\App\User::inRandomOrder()->first()->id) ; 
 	return redirect()->route('campaign.index');
+});
+
+Route::get("auth/user",function(){
+	return auth()->user(); 
 });
 
 
@@ -55,7 +61,7 @@ Route::resource('admin/permissions', 'Admin\PermissionsController');
 Route::resource('admin/users', 'Admin\UsersController');
 Route::resource('admin/pages', 'Admin\PagesController');
 Route::resource('admin/activitylogs', 'Admin\ActivityLogsController')->only([
-	'index', 'show', 'destroy'
+'index', 'show', 'destroy'
 ]);
 
 Route::resource('admin/settings', 'Admin\SettingsController');

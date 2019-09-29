@@ -14,7 +14,7 @@
 <body class="bg-white text-justify">
 	<div id="app">
 
-{{-- if he's logged on .. --}}
+{{-- if he's logged on site.. --}}
 		@auth
 			<app-nav :user="{{ auth()->user() }}"></app-nav>
 		@endauth
@@ -22,14 +22,13 @@
 		@yield('content')
 	</div>
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-<script data-turbolinks-suppress-warning src="{{ mix('js/app.js') }}">
-</script>
+<script data-turbolinks-suppress-warning src="{{ mix('js/app.js') }}"></script>
 <script>	
-	document.addEventListener('DOMContentLoaded', function () {
-		var stepper = new Stepper(document.querySelector('.bs-stepper'))
-	});
+document.addEventListener('DOMContentLoaded', function () {
+var stepper = new Stepper(document.querySelector('.bs-stepper'))
+});
 
-	$(document).on('turbolinks:load',function() {
+$(document).on('turbolinks:load',function() {
 //infinite_scroll()	
 console.log('turbolinks:load fired');
 });

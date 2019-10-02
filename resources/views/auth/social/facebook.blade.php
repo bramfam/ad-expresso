@@ -8,9 +8,8 @@
     <div class="col-md-6">
       <div class="card-body">
         <login inline-template> 
-          <form action="{{ route('facebookLogin') }}" method="POST" class="bg-white p-4 col-md-offset-4">
+          <form action="{{ route('auth.facebook.callback') }}" method="POST" class="bg-white p-4 col-md-offset-4">
            @csrf
-
            <h3 class="mb-4 uppercase">Login to your Facebook</h3>
 
            <div class="form-group">

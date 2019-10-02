@@ -43,8 +43,7 @@ class CampaignController extends Controller
     public function store(Request $request)
     {
         // validate a request if it's google / facebook.. 
-      $campaign_type_id = request('campaign_type_id'); //FB OR GOOGLE
-      
+      $campaign_type_id = request('campaign_type_id'); //FB OR GOOGLE..      
       $promotion_type_id = request('promotion_type');
 
     // if facebook is the campaign_type

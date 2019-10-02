@@ -14,7 +14,7 @@
 <body class="bg-white text-justify">
 	<div id="app">
 
-{{-- if he's logged on site.. --}}
+		{{-- if he's logged on site.. then pass the logged suer credentials --}}
 		@auth
 			<app-nav :user="{{ auth()->user() }}"></app-nav>
 		@endauth

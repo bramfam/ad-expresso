@@ -48,7 +48,7 @@ return [
     'facebook' => [
         'client_id' => env('FACEBOOK_APP_ID'), 
         'client_secret' => env('FACEBOOK_ACCESS_KEY'),
-        'redirect' => 'localhost:8900',
+        'redirect' => env('FACEBOOK_REDIRECT')  
     ],
 
     'github' => [

@@ -1,34 +1,21 @@
 <template>
-	<modal name="link-facebook" :adaptive="true">
-		<div class="modal fade" id="link-facebook-modal" tabindex="-1" role="dialog" aria-labelledby="link-facebook-modal" aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<form>
-							<div class="form-group">
-								<label for="exampleInputEmail1">Campaign Title : </label>
-								<input type="text" class="form-control p-2" placeholder="Bloody Friday Sale">
-							</div>
-							<div class="form-group form-check">
-								<input type="checkbox" class="form-check-input" id="exampleCheck1">
-								<label class="form-check-label" for="exampleCheck1">Check me out</label>
-							</div>
-							<button type="submit" class="btn btn-primary">Submit</button>
-						</form>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary">Save changes</button>
-					</div>
-				</div>
+	<modal name="link-facebook" :adaptive="adaptStatus">
+		<form @submit.prevent="link_facebook" class="p-4 h-full">
+			<div class="form-group mb-1">
+				<h3>Enter your facebook credentials : </h3>
 			</div>
-		</div>
+			<div class="form-group">
+				<label for="recipient-name" class="col-form-label">Username / Email:</label>
+				<input type="text" class="form-control" id="recipient-name">
+			</div>
+			<div class="form-group">
+				<label for="recipient-name" class="col-form-label">Password:</label>
+				<input type="password" class="form-control" id="recipient-name">
+			</div>
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary btn-lg btn-block">Connect Facebook</button>
+			</div>
+		</form>
 	</modal>
 </template>
 
@@ -36,10 +23,19 @@
 export default { 
 	data(){
 		return { 
+			adaptStatus : true
 		}
 	},
 	methods : { 
-
+		link_facebook(){
+			axios.post(route())
+				 .then(response => {
+				 	console.log(data);
+				 })
+				 .catch(error => {
+				 	console.log(error);
+				 })
+		}
 	}
 };
 </script>

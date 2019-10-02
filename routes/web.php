@@ -69,9 +69,6 @@ Route::get('admin/generator', ['uses' => '\Appzcoder\LaravelAdmin\Controllers\Pr
 Route::post('admin/generator', ['uses' => '\Appzcoder\LaravelAdmin\Controllers\ProcessController@postGenerator']);
 */
 
-/*for facebook and google ads login*/
-include 'routes.social.php';
-
 
 
 
@@ -79,7 +76,10 @@ include 'routes.social.php';
 Route::get('logout',"AuthController@logout");
 Auth::routes(['verify' => true]);
 
-Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
-Route::get('/callback/{provider}', 'SocialController@callback');
-
 Route::post('login','AuthController@login')->name('postLogin');
+
+
+/********  for facebook and google auth login  -----------********/
+include 'routes.social.php';
+
+

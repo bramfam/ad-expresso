@@ -21,17 +21,19 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav mr-auto">
+                    @auth
                     <li class="nav-item active text-secondary">
-                        <a class="nav-link text-white" href="#">Login <span class="sr-only">(current)</span></a>
+                        <a class="nav-link text-white" href="#">{{ auth()->user()->first_name }} <span class="sr-only">(current)</span></a>
                     </li>
+                    @endauth             
                 </ul>
                 <span class="navbar-text text-white">
-                 <li class="nav-item active text-secondary">
-                 </li>
-             </span>
-         </div>
-     </nav>
-    <main class="py-4">
+                   <li class="nav-item active text-secondary">
+                   </li>
+               </span>
+           </div>
+       </nav>
+       <main class="py-4">
         @yield('content')
     </main>
 </div>

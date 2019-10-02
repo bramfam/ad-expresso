@@ -18,11 +18,11 @@ class User extends Authenticatable implements MustVerifyEmail
 
 
     protected $fillable = [        
-       'provider',
-       'provider_id'
-   ] ; 
+     'provider',
+     'provider_id'
+ ] ; 
 
-   protected $redirectTo = '/';
+ protected $redirectTo = '/';
 
     // Total Impressions = (Total Cost or Budget) * (1000/CPM)
 
@@ -93,11 +93,9 @@ skills
     group_member_id(group_members) - integer
     skill_name - string
 */
-
-
-    public function get_users_data_value()
-    {
-
-    }
+public function social_accounts()
+{
+    return $this->hasMany(SocialAccount::class);
+}
 
 }

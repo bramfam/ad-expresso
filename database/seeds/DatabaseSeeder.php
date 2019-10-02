@@ -26,18 +26,15 @@ class DatabaseSeeder extends Seeder
         'id' => $key  , 
         'value' => $item
       ]); 
-
     });
-
      factory(App\User::class,10)->create();
-
    }   
 
-  function seed_campaigns()
-  {
-   factory(App\Campaign::class,10)->create();
-  }
+   function seed_campaigns()
+   {
+     factory(App\Campaign::class,10)->create();
+   }
 
 
-}
+ }
 

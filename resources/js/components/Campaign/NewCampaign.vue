@@ -33,8 +33,14 @@
 		<button type="submit" class="btn btn-block btn-primary">Submit</button>
 	</form>
 
-	<button v-else type="button" @click="link_facebook_account" class="btn btn-primary text-xl">Link Facebook Account
-	</button>
+	<div v-else>
+		<a :href="link_facebook_route">
+			<button type="button" class="mt-2 btn btn-primary text-xl">Link Facebook Account
+			</button>
+		</a>
+	<!-- 	<button type="button" @click="link_facebook_account" class="mt-2 btn btn-secondary text-xl">Link Google Account
+		</button> -->
+	</div>
 	
 	<link-facebook></link-facebook>
 
@@ -48,7 +54,8 @@ export default {
 	name: 'NewCampaign',
 	data () {
 		return {
-			user_has_linked_a_social_account : false,
+			user_has_linked_a_social_account : false, // change this to true if naay na match nga account sa table
+			link_facebook_route : route('auth.facebook','facebook'),
 			form : { 
 				campaign_name : "",
 				billing_account_name : ""
@@ -76,7 +83,7 @@ export default {
 		},
 
 		check_if_theres_a_social_account_linked(){
-		
+			console.log("Should return true or false if a user has a linked fb or google login");
 		},
 		
 		link_facebook_account(){
@@ -94,8 +101,10 @@ export default {
 		}
 	},
 	watch : {
+	// all in the data can be written her
 		question(){
-			
+
+
 		}
 
 

@@ -28,13 +28,17 @@ export default {
 	},
 	methods : { 
 		link_facebook(){
-			axios.post(route())
+			axios.post(this.endpoint)
 				 .then(response => {
-				 	console.log(data);
-				 })
-				 .catch(error => {
+				 	console.log(response);
+				 }).catch(error => {
 				 	console.log(error);
 				 })
+		}
+	},
+	computed : { 
+		endpoint(){
+			return route('posts.store');
 		}
 	}
 };

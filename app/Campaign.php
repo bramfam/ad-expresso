@@ -27,10 +27,10 @@ class Campaign extends Model
 	}
 
 
-	/*the Click Through Rate*/
-	public function click_through_rates()
+	/*the Click Through Rate Formula*/
+	public function click_through_rates($number_of_clicks, $total_emails_sent)
 	{
-		return $number_of_clicks / ($total_emails_sent - $bounces);
+		return $this->number_of_clicks / ($total_emails_sent - $bounces);
 	}
 
 
@@ -44,7 +44,7 @@ id - integer
 display_name - string
 motto - string
 
-group_members
+milestones
 user_id - integer (user_id)
 group_id - integer
 full_name - string
@@ -59,17 +59,14 @@ skill_name - string
 	}
 
 
-	public static function of_current_user()
-	{
+	public static function of_current_user(){
 		return static::where('creator_id','=',auth()->user()->id);
 	}
 
 
 	/*that are listed by the logged on user.*/
-	public function scopeAvailable()
-	{
+	public function scopeAvailable(){
 		return $this->where('user_id','=',$this->id);
 	}
-
-
+	
 }

@@ -26,14 +26,10 @@ Route::get('/components', function () {
 
 /*only for the ones who are logged on*/
 Route::group(['middleware' => [ 'auth','verified' ]], function (){
-// view a users tags.. 
-
-// go visit a campaign..
+	// view a users tags.. 	
+	// go visit a campaign..
 	Route::resource('campaign','CampaignController');
-
-	Route::get("tags/user/{user}","CampaignController@tags")->name("campaign.user.tags");
-
-
+	Route::get("tags/user/{user}","CampaignController@user_tags")->name("campaign.user.tags");
 	/*only verified users can access this*/
 	Route::get('profiles/user/{user}',"ProfilesController@show_profile")->name('users.profile');
 });
@@ -80,6 +76,10 @@ Route::post('login','AuthController@login')->name('postLogin');
 
 
 /********  for facebook and google auth login  -----------********/
-include 'routes.social.php';
 
+Route::group(['middleware' => ['web']],function (){
+
+	include 'routes.social.php';
+
+});
 

@@ -1,51 +1,3 @@
-<template>
-	<div>
-		<form class="bg-black p-4 w-1/2" v-if="user_has_linked_a_social_ccount">
-			<h5>New Campaign:</h5>
-			<div class="form-group">
-				<label for="exampleInputEmail1">Campaign Title : </label>
-				<input type="text" class="form-control p-2" placeholder="Bloody Friday Sale">
-			</div>
-			<div class="form-group">
-				<label for="exampleInputEmail1">Billing Account Name:  </label>
-				<select v-model="form.billing_account_name" class="form-control" id="exampleFormControlSelect1">
-					<option>Billing Account Name</option>
-				</select>
-			</div>
-
-			<div class="form-group p-2">
-				<label for="exampleInputEmail1">Tags :(Press Enter each time)</label>
-				<tags-input element-id="tags"
-				v-model="selectedTags"
-				:existing-tags="tags"
-				:typeahead="true">
-			</tags-input>
-		</div>
-
-		<div class="form-group">
-			<label for="exampleInputPassword1">Password</label>
-			<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-		</div>
-		<div class="form-group form-check">
-			<input type="checkbox" class="form-check-input" id="exampleCheck1">
-			<label class="form-check-label" for="exampleCheck1">Remember my password</label>
-		</div>
-		<button type="submit" class="btn btn-block btn-primary">Submit</button>
-	</form>
-
-	<div v-else>
-		<a :href="link_facebook_route">
-			<button type="button" class="mt-2 btn btn-primary text-xl">Link Facebook Account
-			</button>
-		</a>
-	<!-- 	<button type="button" @click="link_facebook_account" class="mt-2 btn btn-secondary text-xl">Link Google Account
-		</button> -->
-	</div>
-	
-	<link-facebook></link-facebook>
-
-</div>
-</template>
 <script>
 import LinkFacebook from '../modals/LinkFacebook.vue';
 export default {
@@ -70,7 +22,14 @@ export default {
 		}
 	},
 	methods : { 
-		
+		check_login_state(){
+			
+			
+		},
+
+
+
+
 		fetch_campaigns(){
 			axios.get(route('campaign.store',this.i))
 		},
@@ -83,6 +42,8 @@ export default {
 		},
 
 		check_if_theres_a_social_account_linked(){
+			// queries something to the database if there's a social account linked.
+
 			console.log("Should return true or false if a user has a linked fb or google login");
 		},
 		
@@ -102,13 +63,13 @@ export default {
 	},
 	watch : {
 	// all in the data can be written her
-		question(){
-
-
-		}
+	question(){
 
 
 	}
+
+
+}
 };
 </script>
 

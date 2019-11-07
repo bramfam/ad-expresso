@@ -22,6 +22,8 @@ trait FormulaCalculator {
 		$ctr = $clicks / $impressions ;
 	}
 
+
+
 	public function impressions()
 	{
 		$costs = request()->get('costs');
@@ -32,7 +34,7 @@ trait FormulaCalculator {
 
 
 	/**
-	click_through_rate
+	click_through_rate = costs .. 
 	*/
 	function clickthrough_rate()
 	{

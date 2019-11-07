@@ -1,7 +1,9 @@
 <?php
 namespace App\Http\Controllers;
 use App\Campaign;
+use App\Tag ; 
 use Illuminate\Http\Request;
+
 class CampaignController extends Controller
 {
     /**
@@ -89,9 +91,15 @@ class CampaignController extends Controller
         //
     }
 
-    public function tags()
+    /*user tags*/
+    public function user_tags()
     {
-        return view('campaign.tags');
+        $tags = Tag::pluck('tag_key')->get();         
+        dump($tags);
+        // dd($tags);
+        // return view('campaign.tags',[
+        //     'tags' => $tags
+        // ]);
     }
 
 
@@ -120,19 +128,17 @@ class CampaignController extends Controller
 
     function move_campaign()
     {
-    
         $str = Str::all() ; 
-
 
         for ($str = 0; $str < Str.length() ; $str++) {
             while (incase_length($this->user())) {
-                    
+
             }
         }   
 
 
         foreach ($users as $user) {
-                dump($user);
+            dump($user);
         }   
 
     }

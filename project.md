@@ -1,10 +1,12 @@
 # Issues so far
 1. Fixed as of Oct.2,2019 : can't Load URL: The domain of this URL isn't included in the app's domains. To be able to load this URL, add all domains and subdomains of your app to the App Domains field in your app settings.
 
-2. There's a bug that says in the login/facebook/callback route..
+2. There's a bug that says in the 
 
 This site can’t be reached localhost unexpectedly closed the connection.
 Try:
+
+login/facebook/callback route..
 
 > Make sure we can connect our account thru facebook
 > We can do things like how can we post a marketing ad for a facebook profile.

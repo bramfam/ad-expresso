@@ -1968,6 +1968,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'AdAccounts',
   data: function data() {
@@ -1986,6 +1987,12 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2075,6 +2082,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['user'],
@@ -2085,6 +2098,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       user_has_linked_a_social_account: false,
+      // change this to true if naay na match nga account sa table
+      link_facebook_route: route('auth.facebook', 'facebook'),
       form: {
         campaign_name: "",
         billing_account_name: ""
@@ -2111,7 +2126,9 @@ __webpack_require__.r(__webpack_exports__);
         return response.data;
       });
     },
-    check_if_theres_a_social_account_linked: function check_if_theres_a_social_account_linked() {},
+    check_if_theres_a_social_account_linked: function check_if_theres_a_social_account_linked() {
+      console.log("Should return true or false if a user has a linked fb or google login");
+    },
     link_facebook_account: function link_facebook_account() {
       this.$modal.show('link-facebook');
     }
@@ -2125,6 +2142,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   watch: {
+    // all in the data can be written her
     question: function question() {}
   }
 });
@@ -2285,6 +2303,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  // components : {  },
   props: ['user'],
   name: 'AppNav',
   data: function data() {
@@ -2408,6 +2427,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2415,7 +2440,13 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    linkFacebook: function linkFacebook() {}
+    link_facebook: function link_facebook() {
+      axios.post(route()).then(function (response) {
+        console.log(data);
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
   }
 });
 
@@ -58378,10 +58409,19 @@ var render = function() {
         "ul",
         _vm._l(_vm.campaign, function(campaign) {
           return _c("li", [
-            _c("h5", {
-              staticClass: "mt-0 mb-1",
-              domProps: { textContent: _vm._s(campaign.name) }
-            })
+            _c("div", { staticClass: "media" }, [
+              _c("img", { staticClass: "mr-3", attrs: { src: "", alt: "" } }),
+              _vm._v(" "),
+              _c("div", { staticClass: "media-body" }, [
+                _c("h5", {
+                  staticClass: "mt-0",
+                  domProps: { textContent: _vm._s(campaign.name) }
+                }),
+                _vm._v(
+                  "\n\t\t\t\t\tThis is just a gibberish text not dynamic stuff. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure excepturi, adipisci animi dolore reprehenderit saepe, totam maxime ipsum quas sint?\n\t\t\t\t"
+                )
+              ])
+            ])
           ])
         }),
         0
@@ -58502,15 +58542,18 @@ var render = function() {
               [_vm._v("Submit")]
             )
           ])
-        : _c(
-            "button",
-            {
-              staticClass: "btn btn-primary text-xl",
-              attrs: { type: "button" },
-              on: { click: _vm.link_facebook_account }
-            },
-            [_vm._v("Link Facebook Account\n\t")]
-          ),
+        : _c("div", [
+            _c("a", { attrs: { href: _vm.link_facebook_route } }, [
+              _c(
+                "button",
+                {
+                  staticClass: "mt-2 btn btn-primary text-xl",
+                  attrs: { type: "button" }
+                },
+                [_vm._v("Link Facebook Account\n\t\t\t")]
+              )
+            ])
+          ]),
       _vm._v(" "),
       _c("link-facebook")
     ],
@@ -59019,33 +59062,66 @@ var render = function() {
     "modal",
     { attrs: { name: "link-facebook", adaptive: _vm.adaptStatus } },
     [
-      _c("form", { staticClass: "p-4" }, [
-        _c("div", { staticClass: "form-group" }, [
-          _c(
-            "label",
-            { staticClass: "col-form-label", attrs: { for: "recipient-name" } },
-            [_vm._v("Recipient:")]
-          ),
+      _c(
+        "form",
+        {
+          staticClass: "p-4 h-full",
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.link_facebook($event)
+            }
+          }
+        },
+        [
+          _c("div", { staticClass: "form-group mb-1" }, [
+            _c("h3", [_vm._v("Enter your facebook credentials : ")])
+          ]),
           _vm._v(" "),
-          _c("input", {
-            staticClass: "form-control",
-            attrs: { type: "text", id: "recipient-name" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group" }, [
-          _c(
-            "label",
-            { staticClass: "col-form-label", attrs: { for: "message-text" } },
-            [_vm._v("Message:")]
-          ),
+          _c("div", { staticClass: "form-group" }, [
+            _c(
+              "label",
+              {
+                staticClass: "col-form-label",
+                attrs: { for: "recipient-name" }
+              },
+              [_vm._v("Username / Email:")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "form-control",
+              attrs: { type: "text", id: "recipient-name" }
+            })
+          ]),
           _vm._v(" "),
-          _c("textarea", {
-            staticClass: "form-control",
-            attrs: { id: "message-text" }
-          })
-        ])
-      ])
+          _c("div", { staticClass: "form-group" }, [
+            _c(
+              "label",
+              {
+                staticClass: "col-form-label",
+                attrs: { for: "recipient-name" }
+              },
+              [_vm._v("Password:")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "form-control",
+              attrs: { type: "password", id: "recipient-name" }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-primary btn-lg btn-block",
+                attrs: { type: "submit" }
+              },
+              [_vm._v("Connect Facebook")]
+            )
+          ])
+        ]
+      )
     ]
   )
 }
@@ -72282,8 +72358,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! c:\laragon\www\adspresso\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! c:\laragon\www\adspresso\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\laragon\www\adspresso\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\laragon\www\adspresso\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

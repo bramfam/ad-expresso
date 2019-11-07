@@ -25,15 +25,26 @@
                     <li class="nav-item active text-secondary">
                         <a class="nav-link text-white" href="#">{{ auth()->user()->first_name }} <span class="sr-only">(current)</span></a>
                     </li>
-                    @endauth             
+                    @endauth
+                    @guest
+                    <li class="nav-item active text-secondary">
+                        <a style="font-size : 18px;" class="nav-link text-white" href="/login">Login<span class="sr-only">(current)</span></a>
+                    </li>  
+                    <li class="nav-item active text-secondary">
+                        <a style="font-size : 18px;" class="nav-link text-white ml-4 text-xl" href="/login">Register<span class="sr-only">(current)</span></a>
+                    </li>
+                    @endguest
                 </ul>
-                <span class="navbar-text text-white">
-                   <li class="nav-item active text-secondary">
-                   </li>
-               </span>
-           </div>
-       </nav>
-       <main class="py-4">
+            </div>
+        </nav>
+        @if($errors->any())
+        <div style="background-color:#f74141; padding: 5px;">  
+            <p class="text-white mt-2">
+             These credentials do not match our records.
+         </p>
+     </div>
+     @endif
+     <main class="py-4">
         @yield('content')
     </main>
 </div>

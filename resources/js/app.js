@@ -36,29 +36,28 @@ Vue.component('new-campaign', require('./components/Campaign/NewCampaign.vue').d
 Vue.component('campaign-steps', require('./components/CampaignSteps.vue').default);
 Vue.component('ad-accounts', require('./components/AdAccounts.vue').default);
 Vue.component('tags-input', VoerroTagsInput);
+
 /**
 * Next, we will create a fresh Vue application instance and attach it to
 * the page. Then, you may begin adding components to this application
 * or customize the JavaScript scaffolding to fit your unique needs.
 */
-
 const app = new Vue({
 	el: '#app',
 	components: { "v-tags-input": VoerroTagsInput },
 });
 
 
-/*
+
 Vue.mixin({
-    methods: {
-        route: route
-    }
+	methods: {
+		route: route
+	}
 });
-*/
 
 
-/*
-export default new Vuex.store({
-	
-});
-*/
+
+
+// export default new Vuex.store({	
+// });
+

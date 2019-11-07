@@ -3,7 +3,13 @@
 		<dashboard-nav></dashboard-nav>
 		<ul>
 			<li v-for="campaign in campaign">
-				<h5 class="mt-0 mb-1" v-text="campaign.name"></h5>
+				<div class="media" >
+					<img src="" class="mr-3" alt="">
+					<div class="media-body">
+						<h5 class="mt-0" v-text="campaign.name"></h5>
+						This is just a gibberish text not dynamic stuff. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure excepturi, adipisci animi dolore reprehenderit saepe, totam maxime ipsum quas sint?
+					</div>
+				</div>
 			</li>
 		</ul>
 	</div>
@@ -15,7 +21,7 @@ export default {
 	name: 'Campaign',
 	data () {
 		return {
-
+			
 		}
 	},
 	computed : {

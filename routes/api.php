@@ -22,6 +22,4 @@ Route::group(['prefix' => 'v1'], function(){
 	Route::get("impressions","Api\CampaignsController@impressions");
 	Route::get("clickthrough_rate","Api\CampaignsController@clickthrough_rate");
 	// Route::get("","Api\CampaignsController@");
-
-
 });

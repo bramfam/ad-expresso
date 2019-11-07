@@ -15,37 +15,29 @@
            </div>
 
            <div class="form-group mb-4">
-             <input name="password" type="password" class="form-control p-4" id="inputPassword" placeholder="Password">
+            <input name="password" type="password" class="form-control p-4" id="inputPassword" placeholder="Password">
 
-             @if($errors->any())
-             {{-- <div style="background-color:#f74141" class="p-2 mb-2">   --}}
-              <p class="text-danger mt-2">
-               These credentials do not match our records.
-             </p>
-           {{-- </div> --}}
-           @endif
+           </div>   
 
-         </div>   
-
-         <div class="form-group mb-4">
-           <div class="form-check">
-             <input class="p-2 form-check-input" type="checkbox" id="autoSizingCheck2">
-             <label class="form-check-label" for="autoSizingCheck2">
-               Remember me
-             </label>
+           <div class="form-group mb-4">
+             <div class="form-check">
+               <input class="p-2 form-check-input" type="checkbox" id="autoSizingCheck2">
+               <label class="form-check-label" for="autoSizingCheck2">
+                 Remember me
+               </label>
+             </div>
            </div>
-         </div>
-         
-         <button type="submit" class="btn btn-lg btn-block text-2xl btn-success ">Login now 
-         </button>  
 
-         <button  type="submit" class="btn btn-lg btn-block text-2xl btn-primary">Facebook Login
-         </button>
-       </form>
-     </login>
+           <button type="submit" class="btn btn-lg btn-block text-2xl btn-success ">Login now 
+           </button>  
+
+           <button  type="submit" class="btn btn-lg btn-block text-2xl btn-primary">Facebook Login
+           </button>
+         </form>
+       </login>
+     </div>
    </div>
  </div>
-</div>
 </div>
 </div>
 @endsection

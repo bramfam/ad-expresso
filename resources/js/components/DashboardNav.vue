@@ -20,7 +20,7 @@
 </div>
 </template>
 
-<script>
+<script>    
 import CampaignSteps from './CampaignSteps.vue';
 import NewCampaign from './Campaign/NewCampaign.vue';
 export default {
@@ -40,10 +40,10 @@ mounted() {
     console.log('Component mounted.');
 },
 computed : {
-    myTags(){
-        return route('campaign.user.tags',3);
-    },
-    create_campaign_route(){
+        myTags(){
+            return route('campaign.user.tags',3);
+        },
+        create_campaign_route(){
             // return route()/
         },
         is_new_campaign_link_toggled(){

@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <form action="/register" method="POST" class="bg-white p-4 col-md-offset-4">
+            <form action="{{ route('register') }}" method="POST" class="bg-white p-4 col-md-offset-4">
                 @csrf
                 <h3 class="mb-2 uppercase">Create a Free account</h3>
                 <div class="form-group">

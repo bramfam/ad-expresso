@@ -24,7 +24,6 @@ class AuthController extends Controller
 
    $pin = request()->get('email');
    $remember_me = request()->get('remember');
-   
    $password = request()->get('password');
 
 	// if (Auth::attempt([$field => $field,'password' => $password], $remember_me)){
